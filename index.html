@@ -56,19 +56,21 @@
             background-color: blue;
         }
         .clear{
-            background-color: blue;
+            background-color: red;
         }
     </style>
     <div class="card">
-        <h2>Write a meassage</h2>
-        <textarea id="text" placeholder="Type something" maxlength="200"></textarea>
+        <h2>Write a message</h2>
+        <textarea id="text" placeholder="Type something" maxlength="200">
+
+        </textarea>
         <div class="counter">
             <span id="count">0</span>/200
         </div>
         <p style="font-size: 12px;color: gray;">200 characters max</p>
         <div class="buttons">
-            <button class="copy" onclick="copy text()">copy</button>
-            <button class="clear" onclick="clear text()">clear</button>
+            <button class="copy" onclick="copyText()">copy</button>
+            <button class="clear" onclick="clearText()">clear</button>
         </div>
     </div>
     <script>
@@ -77,13 +79,13 @@
         textarea.addEventListener("input",function(){
             count.innerText=textarea.value.length;
         });
-        function copy text(){
+        function copyText(){
             textarea.select();
             document.execCommand("copy");
         }
-        function cleartext(){
-            textarea.value="";
-            count.innerText="0"
+        function clearText(){
+            document.getElementById("text").value ="";
+            document.getElementById("count").innerText = "0";
         }
     </script>
 </body>
