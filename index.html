@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Simple Message box</title>
+</head>
+<body>
+    <style>
+        body{
+            background-color: black;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .card{
+            background-color: white;
+            padding: 20px;
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0px 2px 10px rgba(0,0,0,0,2);
+            text-align: center;
+        
+        }
+        h2{
+            margin-bottom: 10px;
+        }
+        textarea{
+            width: 100%;
+            height: 80px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+        }
+        .counter{
+            text-align: right;
+            font-size: 12px;
+            color: gray;
+
+        }
+        .buttons{
+            margin-top: 10px;
+        }
+        button{
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+        .copy{
+            background-color: blue;
+        }
+        .clear{
+            background-color: blue;
+        }
+    </style>
+    <div class="card">
+        <h2>Write a meassage</h2>
+        <textarea id="text" placeholder="Type something" maxlength="200"></textarea>
+        <div class="counter">
+            <span id="count">0</span>/200
+        </div>
+        <p style="font-size: 12px;color: gray;">200 characters max</p>
+        <div class="buttons">
+            <button class="copy" onclick="copy text()">copy</button>
+            <button class="clear" onclick="clear text()">clear</button>
+        </div>
+    </div>
+    <script>
+        let textarea = document.getElementById("text");
+        let count = document.getElementById("count");
+        textarea.addEventListener("input",function(){
+            count.innerText=textarea.value.length;
+        });
+        function copy text(){
+            textarea.select();
+            document.execCommand("copy");
+        }
+        function cleartext(){
+            textarea.value="";
+            count.innerText="0"
+        }
+    </script>
+</body>
+</html>
